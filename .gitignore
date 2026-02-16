@@ -1,0 +1,81 @@
+# Composer
+vendor/
+composer.lock
+
+# Generated files
+outputs/
+*.mp4
+*.webm
+*.avi
+*.mov
+*.mkv
+*.flv
+*.mp3
+*.aac
+*.ogg
+*.flac
+*.wav
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Operating System
+.DS_Store
+Thumbs.db
+.env
+.env.local
+.env.*.local
+
+# PHP
+*.php~
+.php_cs.cache
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+.tmp/
+
+# Node (if using Node.js)
+node_modules/
+npm-debug.log
+yarn.lock
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# User-specific files
+*.user
+*.userprefs
+
+# Build directories
+build/
+dist/
+
+# Configuration files
+config.local.php
+.htaccess.local
