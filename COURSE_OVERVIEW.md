@@ -18,14 +18,16 @@ ffmpeg/
 │   ├── 05_video_resizing.php          # Resize and scale videos
 │   ├── 06_video_trimming.php          # Trim and cut videos
 │   ├── 07_filters_effects.php         # Apply effects and filters
-│   └── 08_advanced_encoding.php       # Advanced encoding techniques
+│   ├── 08_advanced_encoding.php       # Advanced encoding techniques
+│   ├── 09_hover_preview.php           # Hover preview UI
+│   └── 10_montage_audio_video.php     # Audio swap + join videos
 ├── outputs/                           # Generated files location
 └── vendor/                            # Composer packages
 ```
 
 ## 🎓 What's Included
 
-### **8 Comprehensive Lessons**
+### **10 Comprehensive Lessons**
 
 1. **Basic Video Information** - Learn to extract metadata from videos
    - Get duration, resolution, bitrate, codec information
@@ -66,6 +68,16 @@ ffmpeg/
    - Multi-quality tiers
    - Streaming optimization
    - Batch processing
+
+9. **Hover Preview** - YouTube-style hover previews
+   - Hover-to-play snippets
+   - Poster fallbacks
+   - Touch-friendly toggle
+
+10. **Montage Audio + Video** - Mix, trim, and join media
+   - Replace audio track
+   - Trim audio segments
+   - Concatenate videos
 
 ## 📚 Complete Documentation
 

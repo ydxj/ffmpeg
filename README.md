@@ -52,6 +52,18 @@ Welcome to the comprehensive PHP FFmpeg Library course! This course covers every
 - Progressive encoding
 - Stream handling
 
+### 9. **09_hover_preview.php** - Hover Preview (YouTube Style)
+- Hover-to-play previews
+- Poster fallback handling
+- Touch-friendly toggle
+- Quick preview reset
+
+### 10. **10_montage_audio_video.php** - Montage Audio + Video
+- Replace video audio tracks
+- Trim audio segments
+- Join two videos
+- Montage workflow tips
+
 ## Prerequisites
 
 - PHP 7.0 or higher

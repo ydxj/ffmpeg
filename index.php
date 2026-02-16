@@ -242,7 +242,7 @@
             <div class="features">
                 <div class="feature">
                     <h3>🎯</h3>
-                    <p><strong>8+ Lessons</strong><br>Comprehensive tutorials</p>
+                    <p><strong>10+ Lessons</strong><br>Comprehensive tutorials</p>
                 </div>
                 <div class="feature">
                     <h3>💡</h3>
@@ -390,6 +390,21 @@
                         <li>Poster fallback</li>
                         <li>Touch-friendly toggle</li>
                         <li>Preview start time</li>
+                    </ul>
+                    <div class="button-section">
+                        <button class="btn">Start Lesson</button>
+                    </div>
+                </a>
+
+                <a href="lessons/10_montage_audio_video.php" class="lesson-card">
+                    <div class="lesson-number">10</div>
+                    <h3>Montage Audio + Video</h3>
+                    <p>Swap audio tracks, trim clean audio segments, and join two videos into one clip.</p>
+                    <ul class="lesson-features">
+                        <li>Replace audio</li>
+                        <li>Trim audio ranges</li>
+                        <li>Join two videos</li>
+                        <li>FFmpeg montage workflow</li>
                     </ul>
                     <div class="button-section">
                         <button class="btn">Start Lesson</button>
