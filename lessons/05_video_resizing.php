@@ -12,6 +12,8 @@
 require '../vendor/autoload.php';
 
 use FFMpeg\FFMpeg;
+use FFMpeg\Coordinate\Dimension;
+use FFMpeg\Filters\Video\ResizeFilter;
 use FFMpeg\Format\Video\X264;
 
 $videoFile = '../assets/video.mp4';
@@ -196,7 +198,7 @@ $videoExists = file_exists($videoFile);
 $video = $ffmpeg->open('input.mp4');
 
 $video->filters()
-    ->scale(1280, 720)
+    ->resize(new Dimension(1280, 720), ResizeFilter::RESIZEMODE_FIT, true)
     ->synchronize();
 
 $format = new X264();
@@ -207,17 +209,16 @@ $video->save($format, 'output.mp4');
         <div class="example">
             <h3>Resize Maintaining Aspect Ratio</h3>
             <div class="code">
-// Resize to max 1280x720 maintaining aspect ratio
-// Use -1 to maintain aspect for that dimension
+// Resize to fit within 1280x720 while keeping aspect ratio
 $video->filters()
-    ->scale(1280, -1)  // Width 1280, height auto
+    ->resize(new Dimension(1280, 720), ResizeFilter::RESIZEMODE_INSET, true)
     ->synchronize();
 
 $video->save(new X264(), 'output.mp4');
 
-// Or resize height and auto width
+// Or constrain a different max size
 $video->filters()
-    ->scale(-1, 720)   // Width auto, height 720
+    ->resize(new Dimension(720, 1280), ResizeFilter::RESIZEMODE_INSET, true)
     ->synchronize();
             </div>
         </div>
@@ -225,14 +226,15 @@ $video->filters()
         <div class="example">
             <h3>Resize with Padding (Letterboxing)</h3>
             <div class="code">
-// Resize to 1280x720 with padding if needed
+// Resize to 1280x720 with padding (letterbox)
 $video->filters()
-    ->scale(1280, 720, 'letterbox')  // letterbox mode
+    ->resize(new Dimension(1280, 720), ResizeFilter::RESIZEMODE_INSET, true)
+    ->pad(new Dimension(1280, 720))
     ->synchronize();
 
 $video->save(new X264(), 'output.mp4');
 
-// Other pad modes: 'exact', 'fit', 'crop'
+// Use RESIZEMODE_INSET to keep aspect ratio inside the target box
             </div>
         </div>
         
@@ -251,7 +253,7 @@ function generateMultipleResolutions($ffmpeg, $inputFile, $outputDir) {
             $video = $ffmpeg->open($inputFile);
             
             $video->filters()
-                ->scale($config['width'], $config['height'])
+                ->resize(new Dimension($config['width'], $config['height']), ResizeFilter::RESIZEMODE_FIT, true)
                 ->synchronize();
             
             $format = new X264();
@@ -291,7 +293,7 @@ function generateMultipleResolutions($ffmpeg, $inputFile, $outputDir) {
                     if (!file_exists($output)) {
                         $video = $ffmpeg->open($videoFile);
                         $video->filters()
-                            ->scale(1280, 720)
+                            ->resize(new Dimension(1280, 720), ResizeFilter::RESIZEMODE_FIT, true)
                             ->synchronize();
                         
                         $format = new X264();
@@ -324,7 +326,7 @@ function generateMultipleResolutions($ffmpeg, $inputFile, $outputDir) {
                     if (!file_exists($output)) {
                         $video = $ffmpeg->open($videoFile);
                         $video->filters()
-                            ->scale(640, 480)
+                            ->resize(new Dimension(640, 480), ResizeFilter::RESIZEMODE_FIT, true)
                             ->synchronize();
                         
                         $format = new X264();

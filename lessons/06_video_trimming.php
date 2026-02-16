@@ -167,7 +167,7 @@ $videoExists = file_exists($videoFile);
                 <td>Create from HH:MM:SS format</td>
             </tr>
             <tr>
-                <td>$format->getDuration()</td>
+                <td>$format->get('duration')</td>
                 <td>-</td>
                 <td>Get total duration in seconds</td>
             </tr>
@@ -220,7 +220,7 @@ $video->save(new X264(), 'output_segment.mp4');
             <h3>Remove Last N Seconds</h3>
             <div class="code">
 $format = $video->getFormat();
-$duration = $format->getDuration();
+$duration = $format->get('duration');
 
 // Remove last 5 seconds (trim to duration - 5)
 $trimTo = $duration - 5;
@@ -238,7 +238,7 @@ $video->save(new X264(), 'output_trimmed.mp4');
             <div class="code">
 function createSegments($ffmpeg, $inputFile, $outputDir, $segmentLength) {
     $video = $ffmpeg->open($inputFile);
-    $duration = (int)$video->getFormat()->getDuration();
+    $duration = (int)($video->getFormat()->get('duration') ?? 0);
     
     $segments = [];
     $start = 0;
@@ -283,7 +283,7 @@ $segments = createSegments($ffmpeg, 'video.mp4', 'outputs/', 10);
         <?php else: ?>
             <?php
             $video = $ffmpeg->open($videoFile);
-            $duration = (int)$video->getFormat()->getDuration();
+            $duration = (int)($video->getFormat()->get('duration') ?? 0);
             $trimPoint = min(10, $duration);
             ?>
             
@@ -331,7 +331,7 @@ $segments = createSegments($ffmpeg, 'video.mp4', 'outputs/', 10);
             } elseif ($action === 'extract_middle') {
                 try {
                     $video = $ffmpeg->open($videoFile);
-                    $duration = (int)$video->getFormat()->getDuration();
+                    $duration = (int)($video->getFormat()->get('duration') ?? 0);
                     $quarter = $duration / 4;
                     $threeQuarters = ($duration * 3) / 4;
                     
@@ -371,7 +371,7 @@ $segments = createSegments($ffmpeg, 'video.mp4', 'outputs/', 10);
             } elseif ($action === 'multiple_segments') {
                 try {
                     $video = $ffmpeg->open($videoFile);
-                    $duration = (int)$video->getFormat()->getDuration();
+                    $duration = (int)($video->getFormat()->get('duration') ?? 0);
                     $segmentLength = max(5, min(10, $duration / 3)); // Adapt to video length
                     
                     $segments = [];

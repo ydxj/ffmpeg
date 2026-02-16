@@ -380,6 +380,21 @@
                         <button class="btn">Start Lesson</button>
                     </div>
                 </a>
+
+                <a href="lessons/09_hover_preview.php" class="lesson-card">
+                    <div class="lesson-number">9</div>
+                    <h3>Hover Preview (YouTube Style)</h3>
+                    <p>Play muted previews on hover, with posters and quick reset behavior for snappy UX.</p>
+                    <ul class="lesson-features">
+                        <li>Hover-to-play</li>
+                        <li>Poster fallback</li>
+                        <li>Touch-friendly toggle</li>
+                        <li>Preview start time</li>
+                    </ul>
+                    <div class="button-section">
+                        <button class="btn">Start Lesson</button>
+                    </div>
+                </a>
             </div>
         </div>
         
